@@ -317,61 +317,65 @@ predict.TVGEVBayes <- function(object,
         cat("Finding quantiles 'qL' and 'qU' corresponding to the greatest\n",
             " and the smallest exceedance probability.\n")
     }
-    OKL <- OKU <-  FALSE
-    
-    for (i in seq_along(probTestU)) {
-        if (!OKU) {
-            yU <- quantile(NSGEV::qGEV(p = min(prob) / mStar,
-                                       loc = thetaMax[1],        ## thetaBar[ , 1],
-                                       scale = thetaMax[2],      ## thetaBar[ , 2],
-                                       shape = thetaMax[3],      ## thetaBar[ , 3], 
-                                       lower.tail = FALSE),
-                           prob = probTestU[i])
-        }
-        if (!OKL) { 
-            yL <- quantile(NSGEV::qGEV(p = max(prob) / mStar,
-                                       loc = thetaBar[ , 1],
-                                       scale = thetaBar[ , 2],
-                                       shape = thetaBar[ , 3],
-                                       lower.tail = FALSE),
-                           prob = probTestL[i])
-        }
 
-        if (trace > 1) {
-           cat(" yL = ", yL, " yU = ", yU, "\n")
-        }
-                
-        if (!OKU) {
-            qU <- try(uniroot(f = function(q) { FTilde(q) - 1 + min(prob) },
-                              interval = c(yL, yU)),
-                      silent = TRUE)
-            if (!inherits(qU, "try-error") && qU$estim.prec < 1e-4) {
-                OKU <-  TRUE
-                qU <- qU$root
-                if (trace) {
-                    cat("At trial number", i, "'qU' is successfully localised: ",
-                        "qU = " , qU, "\n") 
-                }
+    if (TRUE) {
+        
+        OKL <- OKU <-  FALSE
+        
+        for (i in seq_along(probTestU)) {
+            if (!OKU) {
+                yU <- quantile(NSGEV::qGEV(p = min(prob) / mStar,
+                                           loc = thetaMax[1],        ## thetaBar[ , 1],
+                                           scale = thetaMax[2],      ## thetaBar[ , 2],
+                                           shape = thetaMax[3],      ## thetaBar[ , 3], 
+                                           lower.tail = FALSE),
+                               prob = probTestU[i])
+            }
+            if (!OKL) { 
+                yL <- quantile(NSGEV::qGEV(p = max(prob) / mStar,
+                                           loc = thetaBar[ , 1],
+                                           scale = thetaBar[ , 2],
+                                           shape = thetaBar[ , 3],
+                                           lower.tail = FALSE),
+                               prob = probTestL[i])
             }
             
-        }
-        if (!OKL) {
-            qL <- try(uniroot(f = function(q) {FTilde(q) - 1 + max(prob)},
-                              interval = c(yL, yU)),
-                      silent = TRUE)
-            if (!inherits(qL, "try-error") && qL$estim.prec < 1e-4) {
-                OKL <-  TRUE
-                qL <- qL$root
-                if (trace) {
-                    cat("At trial number", i, "'qL' is successfully localised: ",
-                        "qL = ", qL, "\n")
+            if (trace > 1) {
+                cat(" yL = ", yL, " yU = ", yU, "\n")
+            }
+            
+            if (!OKU) {
+                qU <- try(uniroot(f = function(q) { FTilde(q) - 1 + min(prob) },
+                                  interval = c(yL, yU)),
+                          silent = TRUE)
+                if (!inherits(qU, "try-error") && qU$estim.prec < 1e-4) {
+                    OKU <-  TRUE
+                    qU <- qU$root
+                    if (trace) {
+                        cat("At trial number", i, "'qU' is successfully localised: ",
+                            "qU = " , qU, "\n") 
+                    }
                 }
-            }  
+                
+            }
+            if (!OKL) {
+                qL <- try(uniroot(f = function(q) {FTilde(q) - 1 + max(prob)},
+                                  interval = c(yL, yU)),
+                      silent = TRUE)
+                if (!inherits(qL, "try-error") && qL$estim.prec < 1e-4) {
+                    OKL <-  TRUE
+                    qL <- qL$root
+                    if (trace) {
+                        cat("At trial number", i, "'qL' is successfully localised: ",
+                            "qL = ", qL, "\n")
+                    }
+                }  
+            }
         }
-    }
-    if (!OKL || !OKU) {
-        stop("one of the minimal/maximal quantiles could not be localised")
-    }
+        if (!OKL || !OKU) {
+            stop("one of the minimal/maximal quantiles could not be localised")
+        }
+    } 
     
     quant[1L] <-  qL
     quant[nProb] <- qU

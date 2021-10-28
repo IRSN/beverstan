@@ -17,7 +17,8 @@ TVGEVBayes(
   prior = NULL,
   blockDuration = "year",
   sampleMiss = FALSE,
-  trace = 0
+  trace = 0,
+  ...
 )
 }
 \arguments{
@@ -47,9 +48,30 @@ the returned object, and ar e in relation with the \code{ind_miss}
 incex vector which give their position in the \code{data} element.}
 
 \item{trace}{Integer level of verbosity.}
+
+\item{...}{Further arguments to be passed to the
+\code{\link[rstan]{sampling}} of the \bold{rstan} package.}
 }
 \value{
-An object with (S3) class \code{"TVGEVBayes"}.
+An object with (S3) class \code{"TVGEVBayes"}. This is
+mainly a list with the following items
+\itemize{
+\item{stanFit }{The object with class \code{"stanfit"} returned
+by \code{\link[rstan]{sampling}}. \bold{Caution}: for now
+the parameter names do not match the parameter names
+of the \code{TVGEVBayes} object.
+}
+\item{MCMC }{The array of MCMC iterates with the warm-up
+iterations discarded. The dimensions are: \emph{MCMC iterate},
+\emph{chain} and \emph{parameter}. The parameters have names
+using prefixes \code{"mu"}, \code{"sigma"} and \code{"xi"}.
+The remaining part of the names is given by the
+\code{\link[stats]{terms}} hence conforms to what would be obtained
+using \code{lm} with the same formula. However an exception is for
+the intercepts. For instance the name \code{"mu_(Intercept)"} will be
+repaced by \code{"mu_0"}.
+}
+}
 }
 \description{
 Bayesian inference for some Time-Varying models with GEV margins.
@@ -72,7 +94,8 @@ fit <- TVGEVBayes(data = df,
                   timeMAXdata = tMD,
                   date = "Date", response = "TXMax",
                   design = breaksX(date = Date, breaks = "1970-01-01", degree = 1),
-                  loc = ~ t1 + t1_1970, scale = ~ 1, shape = ~ 1)
+                  loc = ~ t1 + t1_1970, scale = ~ 1, shape = ~ 1,
+                  seed = 1234)
 
 ## plot the regression mean with its 95\% confidence intervals, as
 ## coputed using the \code{fitted method}.
@@ -98,7 +121,8 @@ fit2 <- TVGEVBayes(data = df,
                   date = "Date", response = "TXMax",
                   design = natSplineX(date = Date, knots = "1970-01-01",
                                       boundaryKnots = c("1920-01-01", "2017-01-01")),
-                  loc = ~ ns1 + ns2 + ns3 - 1, scale = ~ 1, shape = ~ 1)
+                  loc = ~ ns1 + ns2 + ns3 - 1, scale = ~ 1, shape = ~ 1,
+                  seed = 2345)
 autoplot(fit2) + ggtitle("Natural spline design: posterior mean")
 
 }

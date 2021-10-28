@@ -35,7 +35,28 @@
 ##'
 ##' @param trace Integer level of verbosity.
 ##'
-##' @return An object with (S3) class \code{"TVGEVBayes"}.
+##' @param ... Further arguments to be passed to the
+##' \code{\link[rstan]{sampling}} of the \bold{rstan} package.
+##' 
+##' @return An object with (S3) class \code{"TVGEVBayes"}. This is
+##' mainly a list with the following items
+##' \itemize{
+##'     \item{stanFit }{The object with class \code{"stanfit"} returned
+##'        by \code{\link[rstan]{sampling}}. \bold{Caution}: for now
+##'        the parameter names do not match the parameter names
+##'        of the \code{TVGEVBayes} object.
+##'     } 
+##'     \item{MCMC }{The array of MCMC iterates with the warm-up
+##'        iterations discarded. The dimensions are: \emph{MCMC iterate},
+##'        \emph{chain} and \emph{parameter}. The parameters have names
+##'        using prefixes \code{"mu"}, \code{"sigma"} and \code{"xi"}.
+##'        The remaining part of the names is given by the
+##'        \code{\link[stats]{terms}} hence conforms to what would be obtained
+##'        using \code{lm} with the same formula. However an exception is for
+##'        the intercepts. For instance the name \code{"mu_(Intercept)"} will be
+##'        replaced by \code{"mu_0"}.
+##'     }
+##' }
 ##'
 ##' @importFrom rstan stan
 ##' @importFrom stats sd quantile
@@ -54,7 +75,8 @@
 ##'                   timeMAXdata = tMD,
 ##'                   date = "Date", response = "TXMax",
 ##'                   design = breaksX(date = Date, breaks = "1970-01-01", degree = 1),
-##'                   loc = ~ t1 + t1_1970, scale = ~ 1, shape = ~ 1)
+##'                   loc = ~ t1 + t1_1970, scale = ~ 1, shape = ~ 1,
+##'                   seed = 1234)
 ##'
 ##' ## plot the regression mean with its 95% confidence intervals, as
 ##' ## coputed using the \code{fitted method}.
@@ -80,7 +102,8 @@
 ##'                   date = "Date", response = "TXMax",
 ##'                   design = natSplineX(date = Date, knots = "1970-01-01",
 ##'                                       boundaryKnots = c("1920-01-01", "2017-01-01")),
-##'                   loc = ~ ns1 + ns2 + ns3 - 1, scale = ~ 1, shape = ~ 1)
+##'                   loc = ~ ns1 + ns2 + ns3 - 1, scale = ~ 1, shape = ~ 1,
+##'                   seed = 2345)
 ##' autoplot(fit2) + ggtitle("Natural spline design: posterior mean")
 ##'
 TVGEVBayes <- function(data,
@@ -91,9 +114,11 @@ TVGEVBayes <- function(data,
                        prior = NULL,
                        blockDuration = "year",
                        sampleMiss = FALSE,
-                       trace = 0) {
+                       trace = 0,
+                       ...) {
 
     mc <- match.call()
+    eDots <- list(...)
 
     ## Rename the response to avoid using the symbol
     colnames(data)[colnames(data) == response] <-  ".y0"
@@ -194,8 +219,6 @@ TVGEVBayes <- function(data,
         ind_miss <- integer(0)
     }
 
-
-
     data <- list(n_obs = length(ind_obs),
                  n_miss = length(ind_miss),
                  n_cens = length(ind_cens),
@@ -236,29 +259,37 @@ TVGEVBayes <- function(data,
     yBar <- mean(df$.y0, na.rm = TRUE)
     yBar <- 35
 
-    inits <- list(list(psi_mu = as.array(fit$psi[fit$ind[["loc"]]]),
-                       psi_sigma = as.array(fit$psi[fit$ind[["scale"]]]),
-                       psi_xi = as.array(fit$psi[fit$ind[["shape"]]]),
-                       y_miss = as.array(rep(yBar, data$n_miss)),
-                       y_cens = as.array(rep(yBar, data$n_cens))),
-                  list(psi_mu = as.array(fit$psi[fit$ind[["loc"]]] * 1.1),
-                       psi_sigma = as.array(fit$psi[fit$ind[["scale"]]] * 1.1),
-                       psi_xi = as.array(fit$psi[fit$ind[["shape"]]] * 1.1),
-                       y_miss = as.array(rep(yBar, data$n_miss)),
-                       y_cens = as.array(rep(yBar, data$n_cens))))
-
-    ## Dir <- "/home/yves/perso/Etudes/Hydro8/BayesHist"
+    if ("chains" %in% names(eDots)) {
+        nChains <- eDots$chains 
+    } else {
+        nChains <- 4L
+    }
+    set.seed(123)
+    if (!("inits" %in% names(eDots))) {
+        inits <- list()
+        for (iChain in 1:nChains) {
+            ## XXX TO BE IMPROVED
+            eps <- 1 + rexp(1L, rate = 20.0)
+            inits[[iChain]] <-
+                list(psi_mu = as.array(fit$psi[fit$ind[["loc"]]]  * eps),
+                     psi_sigma = as.array(fit$psi[fit$ind[["scale"]]] * eps),
+                     psi_xi = as.array(fit$psi[fit$ind[["shape"]]] * eps),
+                     y_miss = as.array(rep(yBar * eps, data$n_miss) ),
+                     y_cens = as.array(rep(yBar * eps, data$n_cens)))       
+        }
+    }
 
     stanFit <- rstan::sampling(
         object = stanmodels$TVGEVCensor,
         data = data,              ## named list of data
-        chains = 2,               ## number of Markov chains
-        warmup = 1000,            ## number of 'warmup' iterations per chain
-        iter = 3000,              ## total number of iterations per chain
-        cores = 2,                ## number of cores (could use one per chain)
+        chains = nChains,         ## number of Markov chains
+        ## warmup = 1000,            ## number of 'warmup' iterations per chain
+        ## iter = 3000,              ## total number of iterations per chain
+        ## cores = 2,                ## number of cores (could use one per chain)
         init = inits,             ## initial values
         refresh = 1,              ## progress shown?
-        control = list(adapt_delta = 0.995)
+        control = list(adapt_delta = 0.99),
+        ...
         )
 
     A <- as.array(stanFit)
