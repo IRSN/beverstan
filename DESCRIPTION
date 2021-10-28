@@ -1,0 +1,32 @@
+Package: beverstan
+Title: Bayes Extreme-Value with Stan
+Version: 0.0.1
+Authors@R: 
+    person(given = "Yves",
+           family = "Deville	",
+           role = c("aut", "cre"),
+           email = "deville.yves@alpestat.com")
+Description: Collection of functions to cope with Bayes Extreme-Value models
+    with various parameterisations.
+License: GPL (>=3) 
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Biarch: true
+Depends: 
+    R (>= 3.4.0), NSGEV, bever, ggplot2
+Imports: 
+    methods,
+    Rcpp (>= 0.12.0),
+    RcppParallel (>= 5.0.1),
+    rstan (>= 2.18.1),
+    rstantools (>= 2.1.1)
+LinkingTo: 
+    BH (>= 1.66.0),
+    Rcpp (>= 0.12.0),
+    RcppEigen (>= 0.3.3.3.0),
+    RcppParallel (>= 5.0.1),
+    rstan (>= 2.18.1),
+    StanHeaders (>= 2.18.0)
+SystemRequirements: GNU make
