@@ -69,7 +69,7 @@ The remaining part of the names is given by the
 \code{\link[stats]{terms}} hence conforms to what would be obtained
 using \code{lm} with the same formula. However an exception is for
 the intercepts. For instance the name \code{"mu_(Intercept)"} will be
-repaced by \code{"mu_0"}.
+replaced by \code{"mu_0"}.
 }
 }
 }
