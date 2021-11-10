@@ -34,7 +34,7 @@ This will create a `beverstan` subdirectory of the current directory,
 i.e. the directory from which the git command was issued.
 Installation on Unix and MacOs systems
 	     
-## Install on Linuxx and MacOS systems
+## Install on Linux and MacOS systems
 
 With these sytems you can install a package from its source. Move to
 the parent directory of your cloned repository and use the following
