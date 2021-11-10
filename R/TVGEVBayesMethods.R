@@ -416,3 +416,105 @@ predict.TVGEVBayes <- function(object,
     
 }
 
+##' *********************************************************************
+##' Extract or build a prior from/for a Bayesian object.
+##'
+##' This method is intended to provide a description that is as close
+##' as possible to that used in the prior spectification given at
+##' the time of the object building.
+##' 
+##' @title Extract or Build a Prior from/for a Bayesian Object
+##' 
+##' @param object An object representing the results of a Bayesian
+##' inference for some king of model.
+##'
+##' @param value An optional structure (usually a list) containing
+##' a "default" prior for \code{object} that can be changed.
+##'
+##' @param ... Arguments to be passed to methods.
+##'
+##' @return A structure that describes a valid prior for the object
+##' using the the information given in \code{value}.
+##'
+##' @export
+##' 
+## prior <- function(object, value, ...) {
+##     UseMethod("prior")
+## }
+
+## ## ***************************************************************************
+## ##' .. content for \description{} (no empty lines) ..
+## ##'
+## ##' @title Extract or Build a Prior from/for a Bayesian
+## ##' \code{TVGEVBayes} Object
+## ##'
+## ##' @param object An object with class \code{TVGEVBayes}.
+## ##'
+## ##' @param value A list giving the parameters used in the prior.
+## ##' 
+## ##' @param type Not used yet.
+## ##'
+## ##' @param dist Not used yet.
+## ##' 
+## ##' @param ... Not used yet.
+## ##' 
+## ##' @return
+## ##' 
+## prior.TVGEVBayes <- function(object, value,
+##                              type = "ind",
+##                              dist = c(rep("norm", 3L)),
+##                              ...) {
+    
+##     if (!is.list(value)) {
+##         stop("'value' must be a list with suitable names")
+##     }
+    
+##     priorType <- rep(c("mean", "cov"), times = 3L)
+##     priorPar <- rep(c("mu", "sigma", "xi"), each = 2L)
+##     nmsPrior <-  paste(priorType, rep("psi", 6L), priorPar, sep = "_")
+##     priorList <- list()
+##     pp <- fit(TVGEV$pp)
+##     names(pp) <- c("mu", "sigma", "xi")
+##     varProv <- c(1e7, 1e7, 10)
+##     names(varProv) <- c("mu", "sigma", "xi")
+    
+##     if (!is.null(value)) {
+        
+##         if (!is.list(value) || !all(names(value) %in% nmsPrior)) {
+##             msg <- paste("c(\"", paste(nmsPrior, collapse = "\", \""), "\")", sep = "")
+##             stop("'prior' must be a named list with names in  \n",
+##                  msg, "\n")
+##         }
+        
+##         for (i in seq_along(nmsPrior)) {
+            
+##             nmi <- nm[i]                ## avoid multiple blackets
+##             pi <- pp[priorPar[i]]       ## number of 'psi" parameters
+##             typi <- priorType[i]        ## "mean" or "cov"?]
+##             pari <- priorPar[i]         ## "mean" or "cov"?
+
+##             if (nmi %in% names(prior)) {
+##                 item <- prior[[nmi]]
+##                 if (typi == "mean") {
+##                     if (length(item) != pi) stop("bad length in prior for ", nmi) 
+##                     else priorList[[nmi]] <- item
+##                 } else if (typi == "cov") {
+##                     if (pi > 1L) {
+##                         if (!is.array(item) || !all.equal(dim(item), c(pi, pi)))
+##                             stop("In prior", nmi, " must be a squre matrix  with ",
+##                                  "size ", pi)
+##                         else item <- matrix(item, nrow = 1L, ncol = 1L)
+##                     }
+##                     priorList[[nmi]] <- item
+##                 }
+##             } else {
+##                 if (typi == "mean") priorList[[nmi]] <- rep(0.0, pi)
+##                 else if (typi == "cov") {
+##                     priorList[[nmi]] <- matrix(varProv[pari], nrow = pi, ncol = pi)
+##                 }
+##             }
+##         }
+##     }
+    
+
+## }

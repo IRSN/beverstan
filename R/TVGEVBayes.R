@@ -202,7 +202,7 @@ TVGEVBayes <- function(data,
                             width.cutoff = 500L)),
                         loc = loc, scale = scale, shape = shape))
     fit$call <- "<generated call>"
-
+    
     ## ===========================================================================
     ## Prepare the data.  Mind that when a vector such as 'psi_sigma' or
     ## 'mean_psi_sigma0' turns to be of length one Stan throws an error
