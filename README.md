@@ -97,8 +97,8 @@ All systems
 -----------
 
 If you are on a Linux, MacOS system or if you are on WIndow and have the
-**Rtools** installed, you can also install the package **devtools**
-package.
+**Rtools** installed, you can also install **beverstan** by using the
+**devtools** package.
 
     devtools::install_github("yvesdeville/beverstan", auth_token = myToken)
 

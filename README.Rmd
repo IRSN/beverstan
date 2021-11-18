@@ -97,7 +97,7 @@ and then use the package developpement tools **Build**.
 ## All systems
 
 If you are on a Linux, MacOS system or if you are on WIndow and have
-the **Rtools** installed, you can also install the package
+the **Rtools** installed, you can also install **beverstan** by using the
 **devtools** package.
 
 ```{r, eval=FALSE}
