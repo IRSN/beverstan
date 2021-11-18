@@ -30,8 +30,8 @@ to clone the kergp repository
 This will create a `beverstan` subdirectory of the current directory,
 i.e. the directory from which the git command was issued.
 
-If you already have cloned the repos, the use the following command from
-within the `beverstan` directory
+If you already have cloned the repos, then use the following command
+from within the `beverstan` directory
 
 `git pull`
 
