@@ -107,7 +107,7 @@ where the `myToken` is a character object containing your
 authorisation token. Of course you must keep your token secret. So do
 not write it in R programs
     
-## All systems
+## Managing R versions (all systems)
 
 Remind that when the package is compiled with `R-a.b.c` the resulting
 binary is intended to be used with R versions having the same major
