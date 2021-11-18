@@ -104,7 +104,7 @@ If you are on a Linux, MacOS system or if you are on WIndow and have the
 
 where the `myToken` is a character object containing your authorisation
 token. Of course you must keep your token secret. So do not write it in
-R programs
+R programs that could be seen.
 
 Managing R versions (all systems)
 ---------------------------------

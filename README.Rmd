@@ -105,7 +105,7 @@ devtools::install_github("yvesdeville/beverstan", auth_token = myToken)
 ```	     
 where the `myToken` is a character object containing your
 authorisation token. Of course you must keep your token secret. So do
-not write it in R programs
+not write it in R programs that could be seen.
     
 ## Managing R versions (all systems)
 
