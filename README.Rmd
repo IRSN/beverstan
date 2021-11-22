@@ -63,38 +63,42 @@ Note that you must formerly have installed all the packages required by
 ### Rtools
 	   
 In order to install the package from its source, you must have a
-suitable Windows plateform with the [**Rtools**](https://cran.r-project.org/bin/windows/Rtools/)
-installed. Then you can
-proceed as Unix or MacOS users, with a build step from command line.
+suitable Windows plateform with the
+[**Rtools**](https://cran.r-project.org/bin/windows/Rtools/)
+installed. Then you can proceed as Unix or MacOS users, with a build
+step from command line. Note that rather than using a terminal, you
+can use the terminal provided by **RStudio**.
 
 If you can not (or do not want to) install the **Rtools** you may get
 a trusted binary from a friend or collegue next to you.
 
-### Compiling with the Rtools
+### Making a precompiled `.zip` file  with the Rtools
     
-If you have the Rtools installed, you can create a binary from the
-source tarball `beverstan_x.y.z.tar.gz`.  Using a terminal, move if
-necessary by using `cd` to the directory containing the source
-tarball, and then type
+If you have the Rtools installed, you can create a precompiled binary
+file from the source tarball `beverstan_x.y.z.tar.gz`.  Using a
+terminal, move if necessary by using `cd` to the directory containing
+the source tarball, and then type
 
 `R CMD INSTALL --build beverstan_x.y.z.tar.gz`
 
 This will create a `.zip` file that can be used on a Windows plateform
 which may not be equipped with the **Rtools**. For instance, with
 **RStudio** you can use the menu `Tools/Install Packages` and select
-`Install from:`.
+`Install from:` to install a precompiled `.zip` file.
 
 ### RStudio	 
 	 
 If you are using the **RStudio** IDE, you can alternatively use menus:
-`Install` and `pre-compile for Windows` to install the source
+**Install** and **pre-compile for Windows** to install the source
 tarball `beverstan_x.y.z.tar.gz`.
 
-If you are you can also create a project using the Menu **New Project...** / **Existing Directory**
-and then use the package developpement tools **Build**.
-   
+If you are planning to modify the package, you can also create a project using
+the Menu **New Project...** / **Existing Directory** and then use the
+package developpement tools **Build**. By proceeding in this way you
+can add new functions or new objects to the package. In thix case you will
+find useful to *fork* the repos.
 
-## All systems
+## Install on all systems with `devtools`
 
 If you are on a Linux, MacOS system or if you are on WIndow and have
 the **Rtools** installed, you can also install **beverstan** by using the
