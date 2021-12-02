@@ -26,6 +26,12 @@ New features
     `autoplot` method could then plot e.g. the densities as is done in
     the *NSGEV* package.
 
+-   Implement the methods wanted in the **stan** packages such as
+    `posterior_predict`.
+
+-   What about the implementation of random effects as in **INLA**:
+    random walk, integregrated random walk, AR, ...
+
 Known problems
 --------------
 
@@ -55,7 +61,7 @@ Improvements
     corresponding method. Each of these main methods would return an
     object with a corresponding class (e.g. `fitted.TVGVBayes`)
     inheriting from `"data.frame"` with some extra attributes to keep
-    trace of the choices: `timeRangè,`level`,`what\` (for what is
+    trace of the choices: `timeRange`, `level`, `what` (for what is
     predicted), ... Note that this is some kind of refactoring.
 
 -   Improve the management of the blocks. A duration of several years
@@ -79,3 +85,4 @@ Technical solutions
 -   Study the code of some packages like **brms** to see how to achieve
     gains in the use of **Stan**. Also instructions collected from the
     **rstantools** package documentation can help.
+
