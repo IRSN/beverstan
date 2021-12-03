@@ -1,6 +1,6 @@
 Package: beverstan
 Title: Bayes Extreme-Value with Stan
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Yves",
            family = "Deville	",
@@ -32,3 +32,4 @@ LinkingTo:
     rstan (>= 2.18.1),
     StanHeaders (>= 2.18.0)
 SystemRequirements: GNU make
+VignetteBuilder: knitr

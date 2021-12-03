@@ -6,6 +6,7 @@
 \alias{coef.TVGEVBayes}
 \alias{vcov.TVGEVBayes}
 \alias{summary.TVGEVBayes}
+\alias{print.TVGEVBayes}
 \title{Methods for the S3 Class \code{"TVGEVBayes"}}
 \format{
 An object of class \code{NULL} of length 0.
@@ -18,6 +19,8 @@ TVGEVBayesMethods
 \method{vcov}{TVGEVBayes}(object, ...)
 
 \method{summary}{TVGEVBayes}(object, ...)
+
+\method{print}{TVGEVBayes}(x, ...)
 }
 \arguments{
 \item{object}{A \code{TVGEVBayes} object.}

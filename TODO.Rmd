@@ -58,8 +58,8 @@ date: "`r Sys.Date()`"
   
 ## Improvements
 
-- The `autoplot` method for `TVGEVBayes` could have a `which` argument
-  controlling the type of plot. The posssible values would be:
+- The `autoplot` method for `TVGEVBayes` could have a `type` argument
+  controlling the type of plot. The posssible values would be:	
   `fitted` (default) `RL`, `predict` and `residuals`. Depending of the
   value of `which` we would first call the corresponding method and
   the arguments passed through the dots `...` would be passed to the
@@ -68,6 +68,10 @@ date: "`r Sys.Date()`"
   inheriting from `"data.frame"` with some extra attributes to keep
   trace of the choices: `timeRange`, `level`, `what` (for what is
   predicted), ... Note that this is some kind of refactoring.
+
+- `autoplot` methods could provide a default title, such as
+  `"posterior mean for the GEV expectation"`. Similarly, the
+  predictive distribution could be described.
    
 - Improve the management of the blocks. A duration of several years
   could be allowed. The beginning of the blocks could also be chosen

@@ -62,6 +62,21 @@ print.summary.TVGEVBayes <- function(x, ...) {
 }
 
 ## *************************************************************************
+##' @method print TVGEVBayes
+##' @export
+##' @rdname TVGEVBayesMethods
+##' 
+print.TVGEVBayes <- function(x, ...) {
+    cat("Object with class \"TVGEVBayes\"\n")
+    cat("\no Call\n")
+    print(x$call)
+    cat("\no MAP and posterior means\n")
+    mat <- rbind("MAP" = x$MAP,
+                 "post. mean" = x$postMean)
+    print(t(round(mat, digits = 4)))
+}
+
+## *************************************************************************
 ##' Guess a default "new" time range for a \code{TVGEVBayes} object.
 ##'
 ##' Given a \code{TVGEVBayes} object we can find both the block
@@ -146,7 +161,7 @@ newTimeRange <- function(object, timeRange = NULL, ...) {
 ##' 
 ##' @method fitted TVGEVBayes
 ##' 
-fitted.TVGEVBayes <- function(object, which = c("exp", "quantile"),
+fitted.TVGEVBayes <- function(object, which = c("expect", "quantile"),
                               prob = 0.99, level = 0.95,
                               ...) {
     
@@ -169,7 +184,7 @@ fitted.TVGEVBayes <- function(object, which = c("exp", "quantile"),
             t(object$TVGEV$X[[i]])
     }
 
-    if (which == "exp") {
+    if (which == "expect") {
         g1 <- gamma(1 - theta[ , , "shape"])
         esp <- theta[ , , "loc"] +  (g1 - 1) * theta[ , , "scale"] /  theta[ , , "shape"]
     } else {

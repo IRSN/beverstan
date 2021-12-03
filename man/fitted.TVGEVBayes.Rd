@@ -4,7 +4,7 @@
 \alias{fitted.TVGEVBayes}
 \title{Fitted Values for a \code{TVGEVBayes} Object}
 \usage{
-\method{fitted}{TVGEVBayes}(object, which = c("exp", "quantile"), prob = 0.99, level = 0.95, ...)
+\method{fitted}{TVGEVBayes}(object, which = c("expect", "quantile"), prob = 0.99, level = 0.95, ...)
 }
 \arguments{
 \item{object}{An object with class \code{"TVGEVBayes"}.}
