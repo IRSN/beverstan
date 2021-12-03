@@ -59,7 +59,7 @@
 ##' }
 ##'
 ##' @importFrom rstan stan
-##' @importFrom stats sd quantile
+##' @importFrom stats sd quantile rexp
 ##' @export
 ##'
 ##' @examples

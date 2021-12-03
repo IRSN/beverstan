@@ -28,6 +28,8 @@ TVGEVBayesMethods
 \item{type}{The type of coefficient.}
 
 \item{...}{Further arguments to be passed to methods.}
+
+\item{x}{A \code{TVGEVBayes} of object.}
 }
 \description{
 Methods for the S3 Class \code{"TVGEVBayes"}

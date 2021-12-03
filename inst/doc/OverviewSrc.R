@@ -2,8 +2,12 @@
 ##' title: "Overview of the beverstan package"
 ##' author: Yves Deville <deville.yves@alpestat.com>
 ##' output:
-##'     pdf_document:
+##'     rmarkdown::html_vignette:
 ##'         toc: true
+##' vignette: >
+##'     %\VignetteIndexEntry{Overview of the beverstan package}
+##'     %\VignetteEngine{knitr::rmarkdown}
+##'     %\VignetteEncoding{UTF-8}
 ##' urlcolor: blue
 ##' ---
 ##'

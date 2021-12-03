@@ -1,5 +1,6 @@
 
-##'@title Methods for the S3 Class \code{"TVGEVBayes"}
+##' @title Methods for the S3 Class \code{"TVGEVBayes"}
+##' 
 TVGEVBayesMethods <- NULL
 
 ## *************************************************************************
@@ -65,6 +66,7 @@ print.summary.TVGEVBayes <- function(x, ...) {
 ##' @method print TVGEVBayes
 ##' @export
 ##' @rdname TVGEVBayesMethods
+##' @param x A \code{TVGEVBayes} of object.
 ##' 
 print.TVGEVBayes <- function(x, ...) {
     cat("Object with class \"TVGEVBayes\"\n")
