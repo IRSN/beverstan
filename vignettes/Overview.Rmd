@@ -5,7 +5,7 @@ output:
     rmarkdown::html_vignette:
         toc: true
 vignette: >
-    %\VignetteIndexEntry{Overview of hte beverstan package}
+    %\VignetteIndexEntry{Overview of the beverstan package}
     %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
 urlcolor: blue

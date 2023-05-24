@@ -1,34 +1,75 @@
 ---
-title: "The *beverstan* package"
+title: "The **beverstan** package"
 author: "Yves Deville"
-date: "`r Sys.Date()`"
+date: "`r Sys.Date()`" 
+output:
+  github_document:
+        toc: true
 ---
 
-# The package
+# Goals
 
-The **beverstan** package for R is a private package performing
-Bayesian inference for some Extreme-Value models. For now, these are
-simply "time-varying" models with GEV margins for block maxima,
-usually annual maxima. The function `TVGEVBayes` has an interface
-which is similar to that of `NSGEV::TVGEV`. It further allows to use
-historical data via its argument `timeMAXdata`, see the function help
-page `?TVGEVBayes` and the examples therein.
+The **beverstan** package for R is a private package funded by
+IRSN/Behrig.  It performs the Bayesian inference for some Extreme-Value
+models. For now, these are simply "time-varying" models with GEV
+margins for block maxima, usually annual maxima. The function
+`TVGEVBayes` has an interface which is similar to that of
+`NSGEV::TVGEV`. It further allows to use *historical data* via its
+argument `timeMAXdata`, see the function help page `?TVGEVBayes` and
+the examples therein.
 
-The Bayesian inference relies on MCMC provided by Stan used through the
-**rstan** package.       
+# Requirements
 
-**beverstan** depends on the private packages **bever** and **NSGEV**
-as well as on public packages available on the CRAN, see the
-`DESCRIPION` file.
+The Bayesian inference relies on MCMC sampling as provided by
+[**Stan**](https://mc-stan.org/), used through the
+[**rstan**](https://mc-stan.org/users/interfaces/rstan) package
+available on the CRAN, including the [**RCpp**
+package](https://www.rcpp.org/). The **beverstan** package is an
+"Rstan" package with a special structure as can be created thanks to
+the [**rstantools**](https://mc-stan.org/rstantools/) package which is
+available on the CRAN.
 
-# Installation
+**beverstan** requires compilation. On a Windows platform, the
+compilation of the sources requires that the
+[**Rtools**](https://cran.r-project.org/bin/windows/Rtools/) are
+avilable.
+
+**beverstan** depends on the IRSN packages:
+[**NSGEV**](https://github.com/IRSN/NSGEV) (public), and
+[**bever**](https://github.com/IRSN/bever) (private), as well as on
+public packages available on the CRAN, see the [`DESCRIPION`](./DESCRIPTION) 
+file.
+
+# Install on all systems with `devtools`
+
+If you use a Linux, MacOS system or if you are on Windows and have
+the **Rtools** installed, you can also install **beverstan** by using
+the **devtools** package.
+
+```{r, eval=FALSE}
+devtools::install_github("IRSN/beverstan", auth_token = myToken)
+```	     
+where the `myToken` is a character object containing your
+authorisation token. Of course you must keep your token secret. So do
+not write it in R programs that could be seen.
+
+Mind the packages embeds a rmarkdown *vignette*, and we recommend to
+build it - which is optional. This can be done by using
+
+```{r, eval=FALSE}
+devtools::install_github("IRSN/beverstan", auth_token = myToken, build_vignettes = TRUE)
+```
+A link to the vignette will then be shown in the package help.
+
+
+# Install by cloning the sources
   
 ## Cloning the repository
 
 If you do not have yet a local `beverstan` repository, use `git clone`
 to clone the kergp repository
 
-`git clone https://github.com/yvesdeville/beverstan/`
+`git clone https://github.com/IRSN/beverstan/`
 
 This will create a `beverstan` subdirectory of the current directory,
 i.e. the directory from which the git command was issued.
@@ -48,9 +89,9 @@ command from a terminal to create a tarball source file
 
 `R CMD build beverstan`
 
-This will produce a source tarball `beverstan_x.y.z.tar.gz` where `x`, `y`
-and `z` stand for the major, minor and patch version numbers. Then you
-can install from a command line
+This will produce a source tarball `beverstan_x.y.z.tar.gz` where `x`,
+`y` and `z` stand for the *major*, *minor* and *patch* version
+numbers. Then you can install from a command line
 
 `R CMD INSTALL beverstan_x.y.z.tar.gz`
 
@@ -97,25 +138,12 @@ the Menu **New Project...** / **Existing Directory** and then use the
 package developpement tools **Build**. By proceeding in this way you
 can add new functions or new objects to the package. In thix case you will
 find useful to *fork* the repos.
-
-## Install on all systems with `devtools`
-
-If you are on a Linux, MacOS system or if you are on WIndow and have
-the **Rtools** installed, you can also install **beverstan** by using the
-**devtools** package.
-
-```{r, eval=FALSE}
-devtools::install_github("yvesdeville/beverstan", auth_token = myToken)
-```	     
-where the `myToken` is a character object containing your
-authorisation token. Of course you must keep your token secret. So do
-not write it in R programs that could be seen.
     
 ## Managing R versions (all systems)
 
 Remind that when the package is compiled with `R-a.b.c` the resulting
 binary is intended to be used with R versions having the same major
-`a` and the same minor `b` but a possibly different patch number
+`a` and the same minor `b` but possibly a different patch number
 `c`. So if you want to use the package on several versions of R with different
 major or minor, you will have to re-compile it to avoid warnings or errors.
  

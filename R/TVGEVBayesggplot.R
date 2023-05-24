@@ -61,6 +61,7 @@ autoplot.TVGEVBayes <- function(object, ...) {
 ##' @return A graphical object inheriting from \code{"ggplot"}.
 ##' 
 ##' @importFrom ggplot2 autoplot
+##' @importFrom bever .gumbel_trans_p .gumBreaks_p
 ##' @export
 ##' @method autoplot predRLTVGEVBayes
 ##' 
@@ -73,9 +74,9 @@ autoplot.predRLTVGEVBayes <- function(object, ...) {
     
     g <- ggplot(data = object)
     g <-  g + geom_line(mapping = aes_string(x = "Prob", y = "Quant"))
-    g <- g + scale_x_continuous(trans = bever:::.gumbel_trans_p,
-                                breaks = bever:::.gumBreaks_p,
-                                minor_breaks = bever:::.gumBreaks_p) +
+    g <- g + scale_x_continuous(trans = bever::.gumbel_trans_p,
+                                breaks = bever::.gumBreaks_p,
+                                minor_breaks = bever::.gumBreaks_p) +
         xlab("prob of exceedance")
 
 

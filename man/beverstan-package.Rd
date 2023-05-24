@@ -6,7 +6,8 @@
 \alias{beverstan}
 \title{The 'beverstan' package.}
 \description{
-A DESCRIPTION OF THE PACKAGE
+Bayesian inference for some Extreme-Value models such as
+Time-Varying GEV models for block maxima.
 }
 \references{
 Stan Development Team (2020). RStan: the R interface to Stan. R package version 2.21.2. https://mc-stan.org

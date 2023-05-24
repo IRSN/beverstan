@@ -64,7 +64,7 @@ RL <- function(object, ...) {
 ##' 
 ##' @seealso \code{\link[bever]{credInt}}.
 ##' 
-##' @importFrom NSGEV qGEV
+##' @importFrom nieve qGEV
 ##' @importFrom stats median smooth.spline predict
 ##' @importFrom bever credInt formatLevel
 ##' @export
@@ -94,8 +94,8 @@ RL.TVGEVBayes <- function(object,
                     125, 150, 175, 200, 250, 300, 500, 700, 1000)
     }
 
-    X <- NSGEV:::modelMatrices.TVGEV(object = object$TVGEV,
-                                     date = newTimeRange$date[1L])$X
+    X <- modelMatrices(object = object$TVGEV,
+                       date = newTimeRange$date[1L])$X
     MCMC <- object$MCMC
     d <- dim(MCMC)
     
@@ -130,7 +130,7 @@ RL.TVGEVBayes <- function(object,
         
         res[i, "Period"] <- period[i]
         
-        x <- NSGEV::qGEV(1 - 1.0 / period[i],
+        x <- nieve::qGEV(1 - 1.0 / period[i],
                          loc = theta[ , 1L, 1L],
                          scale = theta[ , 1L, 2L],
                          shape = theta[ , 1L, 3L],
@@ -142,7 +142,7 @@ RL.TVGEVBayes <- function(object,
         res[i, c("L", "U")] <- LU
           
         if (!is.null(object$MAP)) {
-            res[i, "Mode"] <- NSGEV::qGEV(1 - 1.0 / period[i],
+            res[i, "Mode"] <- nieve::qGEV(1 - 1.0 / period[i],
                                           loc = thetaMAP[1L],
                                           scale = thetaMAP[2L],
                                           shape = thetaMAP[3L],

@@ -157,7 +157,7 @@ newTimeRange <- function(object, timeRange = NULL, ...) {
 ##' \code{which}.
 ##' 
 ##' @importFrom stats fitted quantile
-##' @importFrom NSGEV qGEV
+##' @importFrom nieve qGEV
 ##' 
 ##' @export
 ##' 
@@ -190,7 +190,7 @@ fitted.TVGEVBayes <- function(object, which = c("expect", "quantile"),
         g1 <- gamma(1 - theta[ , , "shape"])
         esp <- theta[ , , "loc"] +  (g1 - 1) * theta[ , , "scale"] /  theta[ , , "shape"]
     } else {
-        esp <- NSGEV::qGEV(prob,
+        esp <- nieve::qGEV(prob,
                            theta[ , , "loc"],
                            scale = theta[ , , "scale"],
                            shape = theta[ , , "shape"])
@@ -234,7 +234,8 @@ fitted.TVGEVBayes <- function(object, which = c("expect", "quantile"),
 ##'
 ##' @param ... Not used yet.
 ##'
-##' @importFrom NSGEV pGEV
+##' @importFrom nieve pGEV
+##' @importFrom NSGEV modelMatrices
 ##' @importFrom stats ppoints quantile uniroot
 ##' @export
 ##' @method predict TVGEVBayes
@@ -276,7 +277,7 @@ predict.TVGEVBayes <- function(object,
     blocks <- blocks[-length(blocks)]
     mStar <- length(blocks)
     
-    X <- NSGEV:::modelMatrices.TVGEV(object = object$TVGEV, date = blocks)$X
+    X <- NSGEV::modelMatrices(object = object$TVGEV, date = blocks)$X
     MCMC <- object$MCMC
     d <- dim(MCMC)
     
@@ -300,7 +301,7 @@ predict.TVGEVBayes <- function(object,
     thetaMax <- apply(theta, MARGIN = 3, max)
 
     if (FALSE) {
-        QQ <-  NSGEV::pGEV(q = 47,
+        QQ <-  nieve::pGEV(q = 47,
                            loc = theta[ , , 1],
                            scale = theta[ , , 2],
                            shape = theta[ , , 3],
@@ -315,7 +316,7 @@ predict.TVGEVBayes <- function(object,
     FTilde <- function(q) {
         res <- rep(NA_real_, length(q))
         for (i in seq_along(res)) {
-            Q <-  NSGEV::pGEV(q = q[i],
+            Q <-  nieve::pGEV(q = q[i],
                               loc = theta[ , , 1],
                               scale = theta[ , , 2],
                               shape = theta[ , , 3],
@@ -341,15 +342,15 @@ predict.TVGEVBayes <- function(object,
         
         for (i in seq_along(probTestU)) {
             if (!OKU) {
-                yU <- quantile(NSGEV::qGEV(p = min(prob) / mStar,
-                                           loc = thetaMax[1],        ## thetaBar[ , 1],
-                                           scale = thetaMax[2],      ## thetaBar[ , 2],
-                                           shape = thetaMax[3],      ## thetaBar[ , 3], 
+                yU <- quantile(nieve::qGEV(p = min(prob) / mStar,
+                                           loc = thetaMax[1],   ## thetaBar[ , 1],
+                                           scale = thetaMax[2], ## thetaBar[ , 2],
+                                           shape = thetaMax[3], ## thetaBar[ , 3], 
                                            lower.tail = FALSE),
                                prob = probTestU[i])
             }
             if (!OKL) { 
-                yL <- quantile(NSGEV::qGEV(p = max(prob) / mStar,
+                yL <- quantile(nieve::qGEV(p = max(prob) / mStar,
                                            loc = thetaBar[ , 1],
                                            scale = thetaBar[ , 2],
                                            shape = thetaBar[ , 3],
