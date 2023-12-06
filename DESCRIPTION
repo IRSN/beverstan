@@ -16,6 +16,7 @@ RoxygenNote: 7.2.1
 Biarch: true
 Depends: 
     R (>= 3.4.0), NSGEV, bever, nieve, ggplot2
+Remotes: github::IRSN/NSGEV, github::IRSN/bever
 Imports: 
     methods,
     Rcpp (>= 0.12.0),
