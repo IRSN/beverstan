@@ -1,13 +1,15 @@
 The **beverstan** package
 ================
 Yves Deville
-2023-05-24
+2023-12-28
 
 - <a href="#goals" id="toc-goals">Goals</a>
 - <a href="#requirements" id="toc-requirements">Requirements</a>
 - <a href="#install-on-all-systems-with-devtools"
   id="toc-install-on-all-systems-with-devtools">Install on all systems
   with <code>devtools</code></a>
+- <a href="#install-a-release" id="toc-install-a-release">Install a
+  release</a>
 - <a href="#install-by-cloning-the-sources"
   id="toc-install-by-cloning-the-sources">Install by cloning the
   sources</a>
@@ -82,6 +84,41 @@ devtools::install_github("IRSN/beverstan", auth_token = myToken, build_vignettes
 ```
 
 A link to the vignette will then be shown in the package help.
+
+# Install a release
+
+The GitHub repos of **bevertan** provides
+[releases](https://github.com/IRSN/beverstan/releases/). For each
+release precompiled (a.k.a. binary) versions of the package are provided
+as files with their name begining by `berverstan_x.y.z` where `x`, `y`,
+and `z` are the major, minor and patch numbers in the package version.
+The extension of the file corresponds to the (64 bit architecture)
+platform
+
+- For **Windows** users the precompiled file is `berverstan_x.y.z.zip`
+
+- For **MacOSX** users the precompiled file is `berverstan_x.y.z.tgz`
+
+- Finally for **Linux** users the precompiled file is
+  `berverstan_x.y.z_R_x_86_64-pc-linux-gnu.tar.gz`
+
+The file extensions should never be changed and neither of these files
+should be uncompressed by using the relevant tool (such a unzip) but
+either **RStudio** or the R command system. Also mind that although it
+has the same file extension as the source tarball, the precompiled
+versions for Linux is very different from the tarball file.
+
+In order to install a precompiled version, you can either
+
+- Use the **RStudio** IDE, menu **`Tools`** then
+  **`Install Packages...`** or
+
+- Use the R command `R CMD install` followed by the name of the
+  precompiled package file.
+
+Mind that the precompiled versions have been obtained by using the
+latest R version at the release time. See below for a note about R
+versions.
 
 # Install by cloning the sources
 

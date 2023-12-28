@@ -35,3 +35,4 @@ LinkingTo:
 Suggests: shinystan, knitr, rmarkdown
 SystemRequirements: GNU make
 VignetteBuilder: knitr
+URL: https://irsn.github.io/beverstan/
