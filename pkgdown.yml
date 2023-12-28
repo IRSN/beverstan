@@ -1,0 +1,10 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  Overview: Overview.html
+last_built: 2023-12-28T14:08Z
+urls:
+  reference: https://irsn.github.io/beverstan/reference
+  article: https://irsn.github.io/beverstan/articles
+
