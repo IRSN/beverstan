@@ -1,78 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://irsn.github.io/beverstan/404.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/TODO.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/articles/Overview.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/index.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/RL.TVGEVBayes.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/RL.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/TVGEVBayes.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/TVGEVBayesMethods.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/autolayer.timeMAXdata.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/autoplot.TVGEVBayes.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/autoplot.predRLTVGEVBayes.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/autoplot.timeMAXdata.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/beverstan-package.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/blockCuts.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/byBlock.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/doIntersect.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/fitted.TVGEVBayes.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/newTimeRange.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/predict.TVGEVBayes.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/timeMAXdata.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/timeRange.html</loc>
-  </url>
-  <url>
-    <loc>https://irsn.github.io/beverstan/reference/year2Date.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://irsn.github.io/beverstan/404.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/TODO.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/articles/Overview.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/articles/index.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/authors.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/index.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/news/index.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/RL.TVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/RL.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/TVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/TVGEVBayesMethods.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/autolayer.timeMAXdata.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/autoplot.TVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/autoplot.predRLTVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/autoplot.profLik.TVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/autoplot.timeMAXdata.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/beverstan-package.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/blockCuts.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/byBlock.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/doIntersect.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/envProf.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/fitted.TVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/index.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/newTimeRange.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/predict.TVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/print.profLik.TVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/profLik.TVGEVBayes.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/timeMAXdata.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/timeRange.html</loc></url>
+<url><loc>https://irsn.github.io/beverstan/reference/year2Date.html</loc></url>
 </urlset>
+
