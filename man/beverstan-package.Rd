@@ -12,3 +12,14 @@ Time-Varying GEV models for block maxima.
 \references{
 Stan Development Team (2020). RStan: the R interface to Stan. R package version 2.21.2. https://mc-stan.org
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://irsn.github.io/beverstan/}
+}
+
+}
+\author{
+\strong{Maintainer}: Yves Deville \email{deville.yves@alpestat.com}
+
+}

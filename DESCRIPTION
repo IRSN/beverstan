@@ -1,6 +1,6 @@
 Package: beverstan
 Title: Bayes Extreme-Value with Stan
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person(given = "Yves",
            family = "Deville	",
@@ -12,7 +12,7 @@ License: GPL (>=3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.2
 Biarch: true
 Depends: 
     R (>= 3.4.0), NSGEV, bever, nieve, ggplot2
@@ -24,7 +24,9 @@ Imports:
     rstan (>= 2.18.1),
     rstantools (>= 2.1.1),
     dplyr,
-    lubridate
+    lubridate,
+    data.table,
+    grDevices
 LinkingTo: 
     BH (>= 1.66.0),
     Rcpp (>= 0.12.0),

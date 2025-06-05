@@ -16,12 +16,11 @@ range. See the \code{\link{timeRange}} function.}
 }
 \value{
 Alist with the two elements
-\itemize{
 \item{\code{timeRange} }{ A character with length one
-describing the time range as in \code{"2020_2019"}.}
+describing the time range as in \code{"2020_2019"}.
+}
 \item{\code{date} }{ A \code{Date} vector with length 2
 giving the beginning and the end of the time-range.
-}
 }
 }
 \description{

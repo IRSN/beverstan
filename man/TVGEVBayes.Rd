@@ -55,7 +55,7 @@ incex vector which give their position in the \code{data} element.}
 \value{
 An object with (S3) class \code{"TVGEVBayes"}. This is
 mainly a list with the following items
-\itemize{
+
 \item{stanFit }{The object with class \code{"stanfit"} returned
 by \code{\link[rstan]{sampling}}. \bold{Caution}: for now
 the parameter names do not match the parameter names
@@ -70,7 +70,6 @@ The remaining part of the names is given by the
 using \code{lm} with the same formula. However an exception is for
 the intercepts. For instance the name \code{"mu_(Intercept)"} will be
 replaced by \code{"mu_0"}.
-}
 }
 }
 \description{

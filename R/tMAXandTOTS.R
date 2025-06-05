@@ -226,23 +226,22 @@ blockCuts <- function(timeRange, blockDuration = "year") {
 ##' 
 ##' @return An object with class \code{timeMAXdata}. This is mainly a
 ##' list with the following two elements.
-##' \itemize{
-##'     \item{MAXinfo }{
-##'         A data frame with columns \code{period}, \code{start},
-##'         \code{end}, \code{duration}. Each row corrrespond to
-##'         a period or time range with beginning, end and duration
-##'         indicated by the columns.  
-##'      }
-##'     \item{MAXdata }{
-##'         A data frame with columns \code{block}, \code{period},
-##'         \code{date}, \code{y}, \code{yL}, \code{yU}. The column
-##'         \code{block} is for compatibility reason, \code{period} links do
-##'         \code{MAXinfo}.  The column \code{date} give the date of an event
-##'         in the period or the begining of the year. The columns \code{y},
-##'          \code{yL} and \code{yU} give the observed level for the variable
-##'         of interest and the bounds when the observation is censored.
-##'     }
+##' \item{MAXinfo }{
+##'     A data frame with columns \code{period}, \code{start},
+##'     \code{end}, \code{duration}. Each row corrrespond to
+##'     a period or time range with beginning, end and duration
+##'     indicated by the columns.  
 ##' }
+##' \item{MAXdata }{
+##'     A data frame with columns \code{block}, \code{period},
+##'     \code{date}, \code{y}, \code{yL}, \code{yU}. The column
+##'     \code{block} is for compatibility reason, \code{period} links do
+##'     \code{MAXinfo}.  The column \code{date} give the date of an event
+##'     in the period or the begining of the year. The columns \code{y},
+##'     \code{yL} and \code{yU} give the observed level for the variable
+##'     of interest and the bounds when the observation is censored.
+##' }
+##' 
 ##' Unfortunately the name \emph{block} in \code{MAXdata} does not
 ##' correspond to a block in the block maxima meaning, but rather to a
 ##' period or time range.

@@ -37,25 +37,24 @@
 ##'
 ##' @param ... Further arguments to be passed to the
 ##' \code{\link[rstan]{sampling}} of the \bold{rstan} package.
-##' 
+##'
 ##' @return An object with (S3) class \code{"TVGEVBayes"}. This is
 ##' mainly a list with the following items
-##' \itemize{
-##'     \item{stanFit }{The object with class \code{"stanfit"} returned
-##'        by \code{\link[rstan]{sampling}}. \bold{Caution}: for now
-##'        the parameter names do not match the parameter names
-##'        of the \code{TVGEVBayes} object.
-##'     } 
-##'     \item{MCMC }{The array of MCMC iterates with the warm-up
-##'        iterations discarded. The dimensions are: \emph{MCMC iterate},
-##'        \emph{chain} and \emph{parameter}. The parameters have names
-##'        using prefixes \code{"mu"}, \code{"sigma"} and \code{"xi"}.
-##'        The remaining part of the names is given by the
-##'        \code{\link[stats]{terms}} hence conforms to what would be obtained
-##'        using \code{lm} with the same formula. However an exception is for
-##'        the intercepts. For instance the name \code{"mu_(Intercept)"} will be
-##'        replaced by \code{"mu_0"}.
-##'     }
+##'
+##' \item{stanFit }{The object with class \code{"stanfit"} returned
+##'     by \code{\link[rstan]{sampling}}. \bold{Caution}: for now
+##'     the parameter names do not match the parameter names
+##'     of the \code{TVGEVBayes} object.
+##' }
+##' \item{MCMC }{The array of MCMC iterates with the warm-up
+##'     iterations discarded. The dimensions are: \emph{MCMC iterate},
+##'     \emph{chain} and \emph{parameter}. The parameters have names
+##'     using prefixes \code{"mu"}, \code{"sigma"} and \code{"xi"}.
+##'     The remaining part of the names is given by the
+##'     \code{\link[stats]{terms}} hence conforms to what would be obtained
+##'     using \code{lm} with the same formula. However an exception is for
+##'     the intercepts. For instance the name \code{"mu_(Intercept)"} will be
+##'     replaced by \code{"mu_0"}.
 ##' }
 ##'
 ##' @importFrom rstan stan
@@ -202,7 +201,7 @@ TVGEVBayes <- function(data,
                             width.cutoff = 500L)),
                         loc = loc, scale = scale, shape = shape))
     fit$call <- "<generated call>"
-    
+
     ## ===========================================================================
     ## Prepare the data.  Mind that when a vector such as 'psi_sigma' or
     ## 'mean_psi_sigma0' turns to be of length one Stan throws an error
@@ -260,7 +259,7 @@ TVGEVBayes <- function(data,
     yBar <- 35
 
     if ("chains" %in% names(eDots)) {
-        nChains <- eDots$chains 
+        nChains <- eDots$chains
     } else {
         nChains <- 4L
     }
@@ -275,7 +274,7 @@ TVGEVBayes <- function(data,
                      psi_sigma = as.array(fit$psi[fit$ind[["scale"]]] * eps),
                      psi_xi = as.array(fit$psi[fit$ind[["shape"]]] * eps),
                      y_miss = as.array(rep(yBar * eps, data$n_miss) ),
-                     y_cens = as.array(rep(yBar * eps, data$n_cens)))       
+                     y_cens = as.array(rep(yBar * eps, data$n_cens)))
         }
     }
 
