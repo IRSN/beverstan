@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Overview of the beverstan package • beverstan</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Overview of the beverstan package">
 </head>
@@ -123,7 +123,7 @@ require further investigation, see later.</p>
 <p>So we can use <code>autoplot</code>.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Posterior mean for the GEV expectation"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-4-1.png" width="960"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="960"></p>
 <p>The posterior mean of the GEV expectation is shown along with a
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>95</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">95\%</annotation></semantics></math>
 credible interval on it. Of course, the credible interval should not be
@@ -132,7 +132,7 @@ confouded with a prediction interval, which would be much larger.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">fit</span>, which <span class="op">=</span> <span class="st">"quantile"</span>, prob <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Posterior mean for the GEV quantile with probability 0.95"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-5-1.png" width="960"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="960"></p>
 <p>Now try the <code>summary</code> method</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></code></pre></div>
@@ -167,18 +167,18 @@ confouded with a prediction interval, which would be much larger.</p>
 <span><span class="co">## 2016-01-01  45.9986311  45.9986311</span></span></code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">des</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Design basis"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-7-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>The column <code>"t1"</code> defines a linear trend with a slope of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.222em"></mspace><msup><mtext mathvariant="normal">year</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1~\text{year}^{-1}</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.222em"></mspace><msup><mtext mathvariant="normal">year</mtext><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1~\text{year}^{-1}</annotation></semantics></math>.
 The colmun <code>"t1_1970"</code> defines a broken line with a change of
 slope located at year
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1970</mn><annotation encoding="application/x-tex">1970</annotation></semantics></math>:
 the slopes are
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.222em"></mspace><msup><mtext mathvariant="normal">year</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1~\text{year}^{-1}</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.222em"></mspace><msup><mtext mathvariant="normal">year</mtext><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1~\text{year}^{-1}</annotation></semantics></math>
 before
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1970</mn><annotation encoding="application/x-tex">1970</annotation></semantics></math>,
 then
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.222em"></mspace><msup><mtext mathvariant="normal">year</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1~\text{year}^{-1}</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.222em"></mspace><msup><mtext mathvariant="normal">year</mtext><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1~\text{year}^{-1}</annotation></semantics></math>.
 The parameter names are automatically build by pasting the GEV parameter
 name <code>"mu"</code>, <code>"sigma"</code> or <code>"xi"</code> with
 the name of the variable entering the formula. Note however that the
@@ -188,9 +188,9 @@ present case, the eventual slope (after year 1970) is the sum of
 <code>mu_t1</code> and <code>mu_t1_1970</code> because the two basis
 functions are non-zero then. So for instance the posterior mean for the
 eventual slope is 0.0536
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">C</mtext><mi>/</mi><msup><mtext mathvariant="normal">year</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\text{C}/\text{year}^{-1}</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">C</mtext><mi>/</mi><msup><mtext mathvariant="normal">year</mtext><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\text{C}/\text{year}^{-1}</annotation></semantics></math>
 or 0.536
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">C</mtext><mi>/</mi><msup><mtext mathvariant="normal">decade</mtext><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\text{C}/\text{decade}^{-1}</annotation></semantics></math>.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">C</mtext><mi>/</mi><msup><mtext mathvariant="normal">decade</mtext><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\text{C}/\text{decade}^{-1}</annotation></semantics></math>.</p>
 <p>We can see the (Bayesian) estimates of the parameters, along with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>95</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">95\%</annotation></semantics></math>
 credible intervals. Insasmuch the credible interval on
@@ -215,14 +215,14 @@ plot.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myRL</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RL.html">RL</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">myRL</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Return level plot"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-9-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-9-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>The credible limits are empirical quantiles of the MCMC iterates
 which explains their wiggling aspect. They can be smoothed, although
 this is only for aesthetical reasons.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myRL</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RL.html">RL</a></span><span class="op">(</span><span class="va">fit</span>, smooth <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">myRL</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Return level plot (smoothed credible limits)"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>We can use the <code>predict</code> method</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myPred</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
@@ -257,7 +257,7 @@ partial matching, we can simply use <code>new =</code></p>
 <p>Again a plot is drawn by using <code>autoplot</code>.</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">myPred</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Predictive distribution for the maximum on 2021-2050"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-14-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="mcmc-diagnostics">MCMC diagnostics<a class="anchor" aria-label="anchor" href="#mcmc-diagnostics"></a>
@@ -287,15 +287,15 @@ censored by interval. Instead of the exact value
 for the time (year)
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
 we only know that the observation for a given year falls in an interval
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>y</mi><mrow><mtext mathvariant="normal">L</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>,</mo><mspace width="0.167em"></mspace><msub><mi>y</mi><mrow><mtext mathvariant="normal">U</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(y_{\text{L},t}, \, y_{\text{U},t})</annotation></semantics></math>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mrow><mtext mathvariant="normal">L</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>,</mo><mspace width="0.167em"></mspace><msub><mi>y</mi><mrow><mtext mathvariant="normal">U</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(y_{\text{L},t}, \, y_{\text{U},t})</annotation></semantics></math>.
 Consequently the contribution of year
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
 in the likelihood
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><msub><mi>L</mi><mi>t</mi></msub><mo>=</mo><msub><mi>F</mi><mtext mathvariant="normal">GEV</mtext></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>y</mi><mrow><mtext mathvariant="normal">U</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>;</mo><mspace width="0.167em"></mspace><mi>𝛙</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>F</mi><mtext mathvariant="normal">GEV</mtext></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>y</mi><mrow><mtext mathvariant="normal">L</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>;</mo><mspace width="0.167em"></mspace><mi>𝛙</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><msub><mi>L</mi><mi>t</mi></msub><mo>=</mo><msub><mi>F</mi><mtext mathvariant="normal">GEV</mtext></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mrow><mtext mathvariant="normal">U</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>;</mo><mspace width="0.167em"></mspace><mi>𝛙</mi><mo stretchy="false" form="postfix">)</mo><mo>−</mo><msub><mi>F</mi><mtext mathvariant="normal">GEV</mtext></msub><mo stretchy="false" form="prefix">(</mo><msub><mi>y</mi><mrow><mtext mathvariant="normal">L</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>;</mo><mspace width="0.167em"></mspace><mi>𝛙</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
    \log L_t = F_{\text{GEV}}(y_{\text{U},t};\, \boldsymbol{\psi}) -
             F_{\text{GEV}}(y_{\text{L},t};\, \boldsymbol{\psi}).
 </annotation></semantics></math> We can take
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mtext mathvariant="normal">L</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>=</mo><mo>−</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">y_{\text{L},t} = -\infty</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mtext mathvariant="normal">L</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>=</mo><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">y_{\text{L},t} = -\infty</annotation></semantics></math>
 or
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mtext mathvariant="normal">U</mtext><mo>,</mo><mi>t</mi></mrow></msub><mo>=</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">y_{\text{U},t} = \infty</annotation></semantics></math>
 using the <code>Inf</code> special number in R.</p>
@@ -314,7 +314,7 @@ since the last value was recorded on 1922-05-24.</p>
 as a vertical segment rather than a point.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">tMD</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"timeMAXdata censored data"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-17-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>A segment reaching the limit of the plotting area should be
 considered as possibly having an infinite bound as here.</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
@@ -327,11 +327,11 @@ considered as possibly having an infinite bound as here.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fitCens</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">fitCens</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Posterior mean for the GEV expectation"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-18-1.png" width="960"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-18-1.png" class="r-plt" alt="" width="960"></p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">fitCens</span>, which <span class="op">=</span> <span class="st">"quantile"</span>, prob <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Posterior mean for the  GEV quantile with probability 0.95"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-19-1.png" width="960"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-19-1.png" class="r-plt" alt="" width="960"></p>
 </div>
 <div class="section level3">
 <h3 id="timemaxdata-objects">timeMaxdata objects<a class="anchor" aria-label="anchor" href="#timemaxdata-objects"></a>
@@ -361,7 +361,7 @@ infinite) ar given.</p>
 <code class="sourceCode R"><span><span class="va">tMD</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/timeMAXdata.html">timeMAXdata</a></span><span class="op">(</span><span class="st">"1922_1930"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"1922-05-24"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">34.4</span>, <span class="cn">Inf</span><span class="op">)</span>,</span>
 <span>                       <span class="st">"1927-08-01"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">36.0</span>, <span class="fl">37.0</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">tMD</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_gray</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Illustrative timeMAXdata"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Overview_files/figure-html/unnamed-chunk-21-1.png" width="60%" style="display: block; margin: auto;"></p>
+<p><img src="Overview_files/figure-html/unnamed-chunk-21-1.png" class="r-plt" alt="" width="60%" style="display: block; margin: auto;"></p>
 <p>The provided information is for the years 1922 to 1930
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>9</mn><annotation encoding="application/x-tex">9</annotation></semantics></math>
 years). We tell that the two largest observations are for years 1922 and
@@ -372,7 +372,7 @@ two largest observations, we tell that the
 remaining observations are certainly below, so are below
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>34.4</mn><annotation encoding="application/x-tex">34.4</annotation></semantics></math>.
 So these observations will be considered as censored with bounds
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">-\infty</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>∞</mi></mrow><annotation encoding="application/x-tex">-\infty</annotation></semantics></math>
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>34.4</mn><annotation encoding="application/x-tex">34.4</annotation></semantics></math>.</p>
 <p>A <code>timeMAXdata</code> object can similarly contain several
@@ -431,7 +431,7 @@ provided, whatever be the duration of this time range. Finally,
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>
